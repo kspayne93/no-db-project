@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
+import './MoviesWindow.css';
 import ToWatch from './MoviesToWatch/ToWatch';
 import Watched from './WatchedMovies/Watched';
 import axios from 'axios';
+import img from "/Users/kylepayne/devmtn/projects/no-db/src/components/MoviesWindow/nicky-c-danny-d.jpg";
+import img2 from "/Users/kylepayne/devmtn/projects/no-db/src/components/MoviesWindow/carlton-dance.gif"
+import img3 from "/Users/kylepayne/devmtn/projects/no-db/src/components/MoviesWindow/delete.gif"
+import img4 from "/Users/kylepayne/devmtn/projects/no-db/src/components/MoviesWindow/michael-scott-surprised.gif"
+import img5 from "/Users/kylepayne/devmtn/projects/no-db/src/components/MoviesWindow/seth.gif"
+let imageToDisplay = img;
 
 class MoviesWindow extends Component {
    constructor(props) {
       super(props)
       this.state = {
-         movies: [],
+         movies: []        
       };
-
+      
       this.handleClick = this.handleClick.bind(this);
+      this.handleDeleteClick = this.handleDeleteClick.bind(this);
+      this.handleWatchedClick = this.handleWatchedClick.bind(this);
+      this.handleUnwatchedClick = this.handleUnwatchedClick.bind(this);
    }
 
    componentDidMount() {
@@ -21,16 +31,49 @@ class MoviesWindow extends Component {
    }
 
    handleClick(title, watched) {
+
       axios.post(`/api/movies`, {
          title: title,
          watched: watched
       }).then(res => {
-         this.setState({ movies: res.data })
+         this.setState({ movies: res.data, userInput: ''})
       })
+      imageToDisplay = img2;
    };
 
-   render() {
+   handleWatchedClick(id, watched) {
+      axios.put(`/api/movies/`, {
+         id: id,
+         watched: watched
+      }).then(res => {
+         this.setState({movies: res.data})
+      })
+      imageToDisplay = img4;
+   }
 
+   handleUnwatchedClick(id, watched) {
+      console.log(id, watched)
+      axios.put(`/api/movies/`, {
+         id: id,
+         watched: watched
+      }).then(res => {
+         this.setState({movies: res.data})
+      })
+      imageToDisplay = img5;
+   }
+
+   handleDeleteClick(title, id) {
+      axios.delete(`/api/movies/${id}`, {
+         title: title,
+         id: id
+      }).then(res => {
+         this.setState({ movies: res.data })
+      })
+      imageToDisplay = img3;
+   };
+
+   
+      render() {
 
       let unwatchedMovies = this.state.movies.filter(movie => {
          if (movie.watched === false) {
@@ -48,20 +91,28 @@ class MoviesWindow extends Component {
       })
      
       return (
-         <div key='movies-window'>
-            <div>
+         <div className='component-box'>
+            <div className='component' id="left-box">
                <ToWatch
                   toWatch={unwatchedMovies}
                   handleClick={this.handleClick}
+                  handleDeleteClick={this.handleDeleteClick}
+                  handleWatchedClick={this.handleWatchedClick}
+                  handleLike={this.handleLike}
                    />
             </div>
-            <div>
+            <div className='image-box'>
+               <img src={imageToDisplay} alt=""/>
+            </div>
+            <div className='component' id="right-box">
                <Watched 
-               watched={watchedMovies}
-               handleClick={this.handleClick}
+                  watched={watchedMovies}
+                  handleClick={this.handleClick}
+                  handleDeleteClick={this.handleDeleteClick}
+                  handleUnwatchedClick={this.handleUnwatchedClick}
+                  handleLike={this.handleLike}
                 />
             </div>
-
          </div>
 
 

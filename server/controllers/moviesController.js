@@ -10,7 +10,6 @@ module.exports = {
          title: req.body.title,
          watched: req.body.watched,
       }
-      console.log(newMovie)
       movies.push(newMovie);
       id++;
       res.status(200).send(movies)
@@ -19,10 +18,21 @@ module.exports = {
       res.status(200).send(movies)
    },
    updateMovie: (req, res) => {
-
+      let updateID = req.body.id;
+      let updateIndex = movies.findIndex(movie => movie.id == updateID);
+      let movieToUpdate = movies[updateIndex];
+      movies[updateIndex] = {
+         id: movieToUpdate.id,
+         title: movieToUpdate.title,
+         watched: req.body.watched
+      };
+      res.status(200).send(movies);
    },
    deleteMovie: (req, res) => {
-
+      let movieToDelete = req.params.id;
+      let movieIndex = movies.findIndex(movie => movie.id == movieToDelete);
+      movies.splice(movieIndex, 1);
+      res.status(200).send(movies);
    },
 
 }

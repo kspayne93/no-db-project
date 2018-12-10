@@ -12,8 +12,11 @@ app.use(express.json()); //Middleware, turning request from JSON back into the f
 const moviesBaseURL = '/api/movies';
 app.post(moviesBaseURL, moviesController.createMovie);
 app.get(moviesBaseURL, moviesController.readMovie);
-app.put(moviesBaseURL, moviesController.updateMovie);
-app.delete(moviesBaseURL, moviesController.deleteMovie);
+app.put(`/api/movies`, moviesController.updateMovie);
+app.delete(`/api/movies/:id`, moviesController.deleteMovie);
+
+
+
 
 
 const port = 4000;

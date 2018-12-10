@@ -1,0 +1,64 @@
+.component-box{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+.component {
+	width: 250px;
+	background-color: rgba(213, 212, 218, 0.781);
+}
+
+button {
+	border-radius: 25px
+}
+
+#left-box {
+	border: 5px solid rgb(4, 136, 22);
+}
+
+#right-box {
+	border: 5px solid rgb(153, 12, 12);
+}
+
+h3 {
+	text-align: center;
+	
+}
+
+.image-box {
+	height: 500px;
+	width: 600px;
+	border: 5px solid gray;
+}
+
+
+img {
+	height: 100%;
+	width: 100%;
+}
+
+ol {
+	padding: 5px;
+}
+
+li.movie-list {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+.input-button {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: stretch;
+}

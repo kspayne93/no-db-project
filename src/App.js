@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios';
 import Header from './components/Header/Header';
 import MoviesWindow from './components/MoviesWindow/MoviesWindow';
+import '/Users/kylepayne/devmtn/projects/no-db/src/sparkle.gif'
 
 class App extends Component {
   constructor() {
@@ -10,21 +10,16 @@ class App extends Component {
     this.state = {}
   }
 
-
-
-
   render() {
 
     return (
-      <div>
-        <div key='header'>
-          <Header />
+      <div key="header">
+        <div>
+          < Header />
         </div>
-        <MoviesWindow
-          key='movies-window'
-          moviesToWatch={this.state.moviesToWatch}
-          moviesWatched={this.state.moviesWatched} />
-
+        <div key="movies-window">
+        < MoviesWindow />
+        </div>
       </div>
     );
   }
