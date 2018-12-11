@@ -18,7 +18,7 @@ module.exports = {
       res.status(200).send(movies)
    },
    updateMovie: (req, res) => {
-      let updateID = req.body.id;
+      let updateID = req.params.id;
       let updateIndex = movies.findIndex(movie => movie.id == updateID);
       let movieToUpdate = movies[updateIndex];
       movies[updateIndex] = {
