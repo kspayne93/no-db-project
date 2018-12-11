@@ -42,7 +42,7 @@ class MoviesWindow extends Component {
    };
 
    handleWatchedClick(id, watched) {
-      axios.put(`/api/movies/`, {
+      axios.put(`/api/movies/${id}`, {
          id: id,
          watched: watched
       }).then(res => {
@@ -52,8 +52,7 @@ class MoviesWindow extends Component {
    }
 
    handleUnwatchedClick(id, watched) {
-      console.log(id, watched)
-      axios.put(`/api/movies/`, {
+      axios.put(`/api/movies/${id}`, {
          id: id,
          watched: watched
       }).then(res => {
