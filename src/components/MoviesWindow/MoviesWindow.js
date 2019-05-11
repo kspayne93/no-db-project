@@ -88,7 +88,7 @@ class MoviesWindow extends Component {
             return false;
          }
       })
-     
+
       return (
          <div className='component-box'>
             <div className='component' id="left-box">
@@ -98,7 +98,7 @@ class MoviesWindow extends Component {
                   handleDeleteClick={this.handleDeleteClick}
                   handleWatchedClick={this.handleWatchedClick}
                   handleLike={this.handleLike}
-                   />
+                  />
             </div>
             <div className='image-box'>
                <img src={imageToDisplay} alt=""/>
@@ -110,7 +110,7 @@ class MoviesWindow extends Component {
                   handleDeleteClick={this.handleDeleteClick}
                   handleUnwatchedClick={this.handleUnwatchedClick}
                   handleLike={this.handleLike}
-                />
+               />
             </div>
          </div>
 

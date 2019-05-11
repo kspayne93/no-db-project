@@ -1,4 +1,4 @@
-// this controls which funtions to run when requests are made to Movies To Watch
+// this controls which functions to run when requests are made to Movies To Watch
 
 let movies = [];
 let id = 1;
@@ -34,5 +34,4 @@ module.exports = {
       movies.splice(movieIndex, 1);
       res.status(200).send(movies);
    },
-
 }
