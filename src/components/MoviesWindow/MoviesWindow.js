@@ -3,11 +3,12 @@ import './MoviesWindow.css';
 import ToWatch from './MoviesToWatch/ToWatch';
 import Watched from './WatchedMovies/Watched';
 import axios from 'axios';
-import img from "/Users/kylepayne/devmtn/projects/no-db/src/components/MoviesWindow/nicky-c-danny-d.jpg";
-import img2 from "/Users/kylepayne/devmtn/projects/no-db/src/components/MoviesWindow/carlton-dance.gif"
-import img3 from "/Users/kylepayne/devmtn/projects/no-db/src/components/MoviesWindow/delete.gif"
-import img4 from "/Users/kylepayne/devmtn/projects/no-db/src/components/MoviesWindow/michael-scott-surprised.gif"
-import img5 from "/Users/kylepayne/devmtn/projects/no-db/src/components/MoviesWindow/seth.gif"
+
+let img = "https://i.imgur.com/8VskHAz.jpg";
+let img2 = "https://i.imgur.com/N017va3.gif"
+let img3 = "https://i.imgur.com/1aIhv9U.gif"
+let img4 = "https://i.imgur.com/18wuX8v.gif"
+let img5 = "https://i.imgur.com/MMdy6ET.gif"
 let imageToDisplay = img;
 
 class MoviesWindow extends Component {
@@ -88,7 +89,7 @@ class MoviesWindow extends Component {
             return false;
          }
       })
-     
+
       return (
          <div className='component-box'>
             <div className='component' id="left-box">
@@ -98,7 +99,7 @@ class MoviesWindow extends Component {
                   handleDeleteClick={this.handleDeleteClick}
                   handleWatchedClick={this.handleWatchedClick}
                   handleLike={this.handleLike}
-                   />
+                  />
             </div>
             <div className='image-box'>
                <img src={imageToDisplay} alt=""/>
@@ -110,7 +111,7 @@ class MoviesWindow extends Component {
                   handleDeleteClick={this.handleDeleteClick}
                   handleUnwatchedClick={this.handleUnwatchedClick}
                   handleLike={this.handleLike}
-                />
+               />
             </div>
          </div>
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import MoviesWindow from './components/MoviesWindow/MoviesWindow';
-import '/Users/kylepayne/devmtn/projects/no-db/src/sparkle.gif'
 
 class App extends Component {
   constructor() {
